@@ -20,7 +20,7 @@ export default {
         },
         checkedTotalPrice(state) {
             return state.cartProducts.reduce((sum, goods) => {
-                if(goods.isChecked) sum += goods.totalPrice
+                if(goods.isChecked) sum += Number(goods.totalPrice)
                 return sum
             }, 0).toFixed(2)
         },
@@ -60,7 +60,7 @@ export default {
             const goods = state.cartProducts.find(item => item.id === goodsId)
             if(goods) {
                 goods.count = count
-                goods.totalPrice = goods.count * goods.price
+                goods.totalPrice = (goods.count * goods.price).toFixed(2)
             }
         }
     },

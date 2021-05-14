@@ -33,6 +33,7 @@ export default {
     },
     created() {
         this.getProducts()
+        console.log(typeof 1.12456.toFixed(2));
     },
     methods: {
         ...mapActions('products', ['getProducts']),
